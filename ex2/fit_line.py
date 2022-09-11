@@ -13,22 +13,21 @@ def main():
 
     x = []
     y = []
-    plt.plot(x,y,'kx')
     plt.axis([0, 10, 0, 6])
 
     plt.waitforbuttonpress()
     print("Middle click to end putting points")
     pts = []
     pts = np.asarray(plt.ginput(-1, timeout=-1))
+    print("Points: ")
     for i in range(len(pts) - 1):
         x.append(pts[i][0])
         y.append(pts[i][1])
         print(pts[i])
 
-    print(x,y)
     plt.plot(x,y,'kx')
     a,b = my_linfit(x,y)
-    xp = np.arange(-2,5,0.1)
+    xp = np.arange(0,10,0.1)
     plt.plot(xp, a*xp+b, 'r-')
     plt.show()
     
